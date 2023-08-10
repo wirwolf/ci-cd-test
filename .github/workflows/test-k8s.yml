@@ -17,9 +17,18 @@ jobs:
     steps:
       - name: Install app
         run: |
+          curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+          helm completion bash > /etc/bash_completion.d/helm
+          helm --version
+
+
           wget https://github.com/SomeBlackMagic/helm-assistant/releases/latest/download/helm-assistant-linux-amd64
           chmod +x helm-assistant-linux-amd64
           mv helm-assistant-linux-amd64 /usr/local/bin/helm-assistant
+          
+          helm-assistant version
+          
+          
 
 #      - uses: balchua/microk8s-actions@v0.3.2
 #        with:
