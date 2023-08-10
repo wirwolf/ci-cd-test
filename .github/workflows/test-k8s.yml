@@ -1,0 +1,25 @@
+name: Publish
+
+#on:
+#  push:
+#    tags:
+#      - '*'
+
+jobs:
+  tests:
+    name: Run tests on k8s
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: common-cicd
+        run: bash .ci-cd/common-cicd.sh
+
+      - name: download-snaps
+        run: bash .ci-cd/download-snaps.sh
+
+
+      - name: install-cluster
+        run: bash .ci-cd/install-cluster.sh
+
+
