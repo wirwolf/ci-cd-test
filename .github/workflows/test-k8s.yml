@@ -8,7 +8,7 @@ name: Publish
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 #  push:
 #    tags:
@@ -25,6 +25,7 @@ jobs:
         with:
           channel: '1.26/stable'
 #          addons: '["dns", "rbac", "hostpath-storage"]'
+
       - name: Test MicroK8s
         id: myactions
         run: |
